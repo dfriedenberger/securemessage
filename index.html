@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Secure Message</title>
+
+   <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+   <script type="text/javascript" src="javascript/aes.js"> </script>
+   <script type="text/javascript" src="javascript/jquery-1.10.1.min.js"> </script>
+   <script type="text/javascript" src="javascript/scripte.js"> </script>
+
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+
+  <body>
+    <div id="content">
+    <h1>Sichere Nachricht</h1>
+
+
+    <!--
+       *
+       * introduction 
+       *
+     -->
+    <h2>Einleitung</h2>
+    <div class="justify">
+
+           Die Diskussionen um PRISM und Edward Snowden haben gezeigt, dass es wichtig ist seine sensiblen Daten selbst und m&ouml;glichst unabh&auml;ngig 
+           zu verschl&uuml;sseln. Das dies mit einfachen Mitteln geht und dabei eine hohe Sicherheit erreichbar ist, soll dieses Projekt &quot;Secure Message&quot; zeigen.
+           Du kannst Dir das ZIP-file herunterladen und lokal die Datei &quot;index.html&quot; mit deinem Browser &ouml;ffnen. 
+           Wenn Du selbst Entwickler bist, kannst Du das Projekt auch clonen.
+           <code> git clone https://github.com/dfriedenberger/securemessage/ </code>
+           Ist Dir das zu kompliziert, kannst Du Deine Nachrichten direkt hier verschl&uuml;sseln. 
+           Daf&uuml;r musst Du aber dieser Seite vertrauen.
+           <br />
+           Das Projekt besteht aus den Javascript Komponenten CryptoJS<sup><a href="#cite_note-1">[1]</a></sup>und 
+           jQuery <sup><a href="#cite_note-2">[2]</a></sup>. 
+           Die Icon&acute;s entstammen dem Tango Desktop Projekt<sup><a href="#cite_note-1">[3]</a></sup> und die Schriftarten 
+           kommen vom Google Webfont Projekt.<sup><a href="#cite_note-1">[4]</a></sup>
+    </div>
+    <a class="toggleNext" href="#">[mehr ...]</a>
+    <div class="justify close">
+
+           Zum Versch&uuml;sseln wird das Java Script Framework CryptoJS<sup><a href="#cite_note-1">[1]</a></sup> verwendet.
+           Dieses stellt eine Implementierung des &quot;Advanced Encryption Standard&quot; (AES) Algrorithmus zur Verf&uuml;gung mit 
+           dem einfach Nachrichten verschl&uuml;sselt werden k&ouml;nnen.
+        <code>
+	  &lt;script src=&quot;http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js&quot;&gt;&lt;/script&gt;<br/>
+	  &lt;script&gt;<br/>
+	  &nbsp;&nbsp;var encrypted = CryptoJS.AES.encrypt(&quot;Message&quot;, &quot;Secret Passphrase&quot;);<br/>
+          <br/>
+	  &nbsp;&nbsp;var decrypted = CryptoJS.AES.decrypt(encrypted, &quot;Secret Passphrase&quot;);<br/>
+	  &lt;/script&gt;<br/>
+        </code>
+         Der AES ist ein symetrisches Kryptosystem, mit dem ein hohes Ma&szlig; an Sicjherheit geboten wird.
+
+    </div>
+    
+    <div id="messageActivateJavascript" class="warning">
+	    Um dieses Angebot zu nutzen, wird javascript benötigt. 
+    </div>
+
+    <!--
+       *
+       * send message
+       *
+     -->
+
+    <h2>Nachricht verschl&uuml;sseln</h2>
+
+    <div class="messages" >
+        <div id="messageSuccessfulDecryption" class="notice close"> <a class="closeParent" href="#">&nbsp;</a> 
+                <span>Die Entschl&uuml;sselung war erfolgreich.</span> 
+        </div>
+        <div id="messageFailedDecryption" class="warning close" > <a class="closeParent" href="#">&nbsp;</a> 
+                <span>
+                      Die Entschl&uuml;sselung war nicht erfolgreich. 
+                      Das Passwort ist falsch eingegeben worden.
+                </span> 
+        </div>
+        <div id="messageSuccessfulEncryption" class="notice close" > <a class="closeParent" href="#">&nbsp;&nbsp;&nbsp;</a> 
+                <span>Die Verschl&uuml;sselung war erfolgreich. Kopiere den vollst&auml;ndigen Text in eine Nachricht. Du kannst sie 
+                      nun sicher in einem sozialen 
+                      Netzwerk deiner Wahl oder per Email &uuml;bertragen.</span> 
+        </div>
+        <div id="messageInsertKey" class="warning close"> 
+                <span>Das geheime Passwort muss noch eingegeben werden. Verwende am besten einen l&auml;ngeren Satz oder ein Passwort 
+                      mit Zahlen und Sonderzeichen.
+                </span> 
+        </div>
+    </div>
+
+     
+    <!-- Default preamble Message will copied to Textarea if empty -->
+    <div id="preambleMessage" style="display:none;">
+
+          Hi,
+          Diese Nachricht kannst Du auf dfriedenberger.github.io/securemessage entschl&uuml;sseln.
+          Das geheime Passwort habe ich Dir bei unserem letzten Kneipenbesuch mitgeteilt.
+
+    </div>
+
+
+
+    <form method="post" enctype="multipart/form-data">
+
+        
+        <div class="container">
+           <textarea cols="50" rows="10" id="message"></textarea>
+	</div>
+
+        <div class="container">
+           <span>Passphrase</span>
+           <input type="text" id="key" name="key" value="">
+        </div>
+
+
+        <div class="buttonbox">
+          <button id="encrypt">Verschl&uuml;sseln</button>
+          <button id="decrypt">Entschl&uuml;sseln</button>
+        </div>
+
+
+     </form>
+
+   
+
+
+    <!--
+       *
+       * impressum
+       *
+     -->
+
+    <h2>Impressum</h2>
+    <div id="impressum">
+          von <a href="mailto:projekte@frittenburger.de">Dirk Friedenberger</a> <br />
+          <a href="http://www.frittenburger.de">www.frittenburger.de</a>
+
+    </div>
+    
+
+    <!--
+       *
+       * references
+       *
+     -->
+
+    <h2>Quellen</h2>
+    <ol>
+      <li id="cite_note-1"><a href="http://code.google.com/p/crypto-js/">CryptoJS</a></li>
+      <li id="cite_note-2"><a href="http://http://tango.freedesktop.org/"> Tango Desktop Projekt</a></li>
+      <li id="cite_note-3"><a href="http://www.jquery.com">jQuery</a></li>
+      <li id="cite_note-4"><a href="http://http://www.google.com/fonts/">Google Webfonts</a></li>
+   </ol>
+
+  </div>
+
+  </body>
+</html>
