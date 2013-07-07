@@ -1,0 +1,123 @@
+
+/* Fonts */
+
+@import url(http://fonts.googleapis.com/css?family=Offside);
+
+body{
+ font-family: 'Offside', cursive;
+}
+
+textarea , input {
+ font-family: 'Offside', cursive;
+ font-size: 18px;
+}
+
+
+
+/* tango pallette http://en.wikipedia.org/wiki/Tango_Desktop_Project
+ * chameleon #8ae234  / #4e9a06
+ * Scarlet Red #ef2929 / #a40000
+ * Aluminium #eeeeec / #d3d7cf / #babdb6
+*/
+
+
+/* 
+ * global 
+ */
+
+body {
+  background-color:#fff;
+}
+
+#content {
+  position:relative;
+  width: 850px;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:#eeeeec;
+}
+
+/* Blocksatz */
+.justify {
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+/* messages */
+
+.close   { display: none; }
+.notice  { background-color: #8ae234; border: 1px solid #4e9a06;}
+.warning { background-color: #ef2929; border: 1px solid #a40000;}
+
+
+
+.notice span , .warning span {
+  display: block; 
+  margin: 25px;
+}
+
+.closeParent
+{
+  background-repeat:no-repeat;
+  background-position: center;
+  background-image: url("img/close.png");
+  float: right;
+  text-decoration: none;
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+
+.decryptedmessage {
+  color: #111;
+  background-color  : white;
+  background-image: url("img/unlocked_50.png");
+  background-repeat:no-repeat;
+  background-position: center;
+}
+
+.encryptedmessage {
+  color: #333;
+  background-color: #ddd;
+  background-image: url("img/lopcked_50.png");
+  background-repeat:no-repeat;
+  background-position: center;
+}
+
+#decrypt , #encrypt {   
+   height: 50px;
+   font-size: 25px;
+   padding-left: 50px;
+}
+
+#decrypt {
+ background-image: url("img/unlocked_small.png");
+ background-repeat:no-repeat;
+ background-position: 9px 9px;
+}
+
+#encrypt {
+ background-image: url("img/locked_small.png");
+ background-repeat:no-repeat;
+ background-position: 9px 9px;
+}
+
+/* Code Listing */
+
+code {
+ display: block;
+ white-space:normal;
+ background-color: #d3d7cf;
+ font: 1em, 'Courier New', Courier, Fixed;
+ padding: 7px;
+ margin: 7px 7px 7px 7px;
+}
+
+
