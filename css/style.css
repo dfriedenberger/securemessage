@@ -1,4 +1,3 @@
-
 /* Fonts */
 
 @import url(http://fonts.googleapis.com/css?family=Offside);
@@ -86,7 +85,7 @@ body {
 .encryptedmessage {
   color: #333;
   background-color: #ddd;
-  background-image: url("img/lopcked_50.png");
+  background-image: url("img/locked_50.png");
   background-repeat:no-repeat;
   background-position: center;
 }
